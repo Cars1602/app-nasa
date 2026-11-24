@@ -1,0 +1,23 @@
+No se pudo agregar "C:\Users\danie\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{7ba37445-f8cf-48ba-b0a1-d3cadf9d6569}\Temp\SpaceExplorer-dotnet\.dotnet\tools" a la variable de entorno PATH. Agregue este directorio a PATH para usar las herramientas instaladas con "dotnet tool install".
+
+Esto es .NET 10.0.
+---------------------
+Versi├│n del SDK: 10.0.403
+
+----------------
+Instalar un certificado de desarrollo HTTPS de ASP.NET Core.
+Para confiar en el certificado, ejecute "dotnet dev-certs https --trust"
+Obtenga informaci├│n sobre HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Escribir su primera aplicaci├│n: https://aka.ms/dotnet-hello-world
+Descubra las novedades: https://aka.ms/dotnet-whats-new
+Explore la documentaci├│n: https://aka.ms/dotnet-docs
+Notificar problemas y encontrar el c├│digo fuente en GitHub: https://github.com/dotnet/core
+Use "dotnet --help" para ver los comandos disponibles o visite: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+Se encontr├│ un problema al comprobar las cargas de trabajo. Para obtener m├ís informaci├│n, ejecute "dotnet workload update".
+Unhandled exception. System.Exception: FALLO: Persistencia de filas al abrir en otro proceso
+   at Program.<>c__DisplayClass0_0.<<Main>$>g__Comprobar|0(Boolean valor, String nombre) in C:\avances\practicas u\practicas u\Aplicaciones Mobiles I\Actividad 06\tmp\PruebasSqlite\Program.cs:line 11
+   at Program.<Main>$(String[] args) in C:\avances\practicas u\practicas u\Aplicaciones Mobiles I\Actividad 06\tmp\PruebasSqlite\Program.cs:line 70
+   at Program.<Main>(String[] args)

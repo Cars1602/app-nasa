@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SpaceExplorer.Vistas.InicioPage" Title="SpaceExplorer" BackgroundColor="#0B1026">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="24" MaximumWidthRequest="920" HorizontalOptions="Center">
+            <Grid ColumnDefinitions="54,*" ColumnSpacing="12">
+                <Image Source="orbita.png" HeightRequest="54" WidthRequest="54" SemanticProperties.Description="Planeta con su órbita: SpaceExplorer" />
+                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="4">
+                    <Label Text="SpaceExplorer" TextColor="White" FontSize="24" FontAttributes="Bold" LineBreakMode="NoWrap" />
+                    <Label Text="Explorador del universo" TextColor="#A6B9FF" FontSize="14" />
+                </VerticalStackLayout>
+            </Grid>
+            <Border Padding="24" Stroke="#3D4783" BackgroundColor="#18213F">
+                <Border.StrokeShape><RoundRectangle CornerRadius="24" /></Border.StrokeShape>
+                <VerticalStackLayout Spacing="16">
+                    <Label Text="Un universo por descubrir" FontSize="28" FontAttributes="Bold" TextColor="White" SemanticProperties.HeadingLevel="Level1" />
+                    <Label Text="Explora fotografías, misiones e historias de la biblioteca de la NASA. Cada imagen es una puerta para aprender." TextColor="#D4DDF4" FontSize="17" />
+                    <Button Text="Comenzar a explorar" Clicked="AbrirExploracion" BackgroundColor="#6554D9" TextColor="White" CornerRadius="14" HorizontalOptions="Start" Padding="24,14" />
+                </VerticalStackLayout>
+            </Border>
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Elige tu próximo destino" FontSize="21" FontAttributes="Bold" TextColor="White" />
+                <Label Text="Estas categorías buscan temas en la biblioteca." FontSize="14" TextColor="#A6B9FF" />
+            </VerticalStackLayout>
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto" ColumnSpacing="12" RowSpacing="12">
+                <Button Text="Luna" CommandParameter="moon" Clicked="AbrirCategoria" BackgroundColor="#242F53" TextColor="White" CornerRadius="16" Padding="10,22" />
+                <Button Grid.Column="1" Text="Planetas" CommandParameter="solar system planets" Clicked="AbrirCategoria" BackgroundColor="#30284D" TextColor="White" CornerRadius="16" Padding="10,22" />
+                <Button Grid.Row="1" Text="Estrellas" CommandParameter="stars" Clicked="AbrirCategoria" BackgroundColor="#30284D" TextColor="White" CornerRadius="16" Padding="10,22" />
+                <Button Grid.Row="1" Grid.Column="1" Text="Galaxias" CommandParameter="galaxy" Clicked="AbrirCategoria" BackgroundColor="#242F53" TextColor="White" CornerRadius="16" Padding="10,22" />
+                <Button Grid.Row="2" Text="Agujeros negros" CommandParameter="black hole" Clicked="AbrirCategoria" BackgroundColor="#242F53" TextColor="White" CornerRadius="16" Padding="10,22" />
+                <Button Grid.Row="2" Grid.Column="1" Text="Misiones" CommandParameter="space mission" Clicked="AbrirCategoria" BackgroundColor="#30284D" TextColor="White" CornerRadius="16" Padding="10,22" />
+            </Grid>
+            <Button Text="Ver mi colección" Clicked="AbrirColeccion" BackgroundColor="#18213F" TextColor="#C0B5FF" CornerRadius="14" />
+            <Label Text="Fuente: NASA Image and Video Library. Proyecto educativo independiente; no es una aplicación oficial de la NASA." TextColor="#A6B9CF" FontSize="13" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

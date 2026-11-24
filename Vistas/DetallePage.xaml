@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:modelo="clr-namespace:SpaceExplorer.Modelo"
+             x:Class="SpaceExplorer.Vistas.DetallePage" x:DataType="modelo:Descubrimiento"
+             Title="Descubrimiento" BackgroundColor="#0B1026">
+    <ScrollView>
+        <VerticalStackLayout Padding="24" Spacing="20" MaximumWidthRequest="920" HorizontalOptions="Center">
+            <Border Stroke="#384877" BackgroundColor="#18213F" Padding="12">
+                <Border.StrokeShape><RoundRectangle CornerRadius="20" /></Border.StrokeShape>
+                <Grid RowDefinitions="Auto,Auto">
+                    <Image x:Name="ImagenAmpliada" HeightRequest="320" Aspect="AspectFit" SemanticProperties.Description="{Binding Titulo}" />
+                    <Label x:Name="SinImagenLabel" IsVisible="False" Text="Vista previa no disponible." TextColor="#A6B9FF" HorizontalOptions="Center" VerticalOptions="Center" />
+                    <Label Grid.Row="1" Text="Fuente: NASA Image and Video Library" TextColor="#A6B9CF" FontSize="12" Margin="0,10,0,0" />
+                </Grid>
+            </Border>
+            <Label Text="{Binding Titulo}" FontSize="27" FontAttributes="Bold" TextColor="White" SemanticProperties.HeadingLevel="Level1" />
+            <Border Padding="18" Stroke="#384877" BackgroundColor="#18213F">
+                <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                <VerticalStackLayout Spacing="10">
+                    <Label Text="{Binding Centro, StringFormat='Centro: {0}'}" TextColor="#C0B5FF" />
+                    <Label x:Name="FechaLabel" TextColor="#D4DDF4" />
+                    <Label Text="{Binding NasaId, StringFormat='NASA ID: {0}'}" TextColor="#D4DDF4" />
+                </VerticalStackLayout>
+            </Border>
+            <Label Text="Sobre esta imagen" TextColor="White" FontSize="22" FontAttributes="Bold" />
+            <Label x:Name="DescripcionLabel" TextColor="#D4DDF4" FontSize="16" LineHeight="1.3" TextType="Text" />
+            <Label Text="Se conserva la descripción de la fuente en su idioma original. Los créditos disponibles pueden consultarse en ese texto." TextColor="#A6B9CF" FontSize="13" />
+            <Border Padding="18" Stroke="#384877" BackgroundColor="#18213F">
+                <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                <VerticalStackLayout Spacing="12">
+                    <Label Text="Mi descubrimiento" TextColor="White" FontSize="22" FontAttributes="Bold" />
+                    <Label Text="Categoría personal" TextColor="#C0B5FF" />
+                    <Entry x:Name="CategoriaEntry" Text="General" MaxLength="50" TextColor="White" Placeholder="Ej.: Planetas, Misiones, Favoritos" PlaceholderColor="#A6B9CF" />
+                    <Label Text="Mis notas" TextColor="#C0B5FF" />
+                    <Editor x:Name="NotasEditor" AutoSize="TextChanges" MinimumHeightRequest="100" MaxLength="2000" TextColor="White" Placeholder="¿Qué aprendiste de esta imagen?" PlaceholderColor="#A6B9CF" />
+                    <Button x:Name="GuardarButton" Text="Guardar en mi colección" Clicked="GuardarColeccion" IsEnabled="False" BackgroundColor="#6554D9" TextColor="White" CornerRadius="14" />
+                    <Label x:Name="EstadoColeccionLabel" Text="Consultando tu colección…" TextColor="#A6B9FF" FontSize="14" />
+                </VerticalStackLayout>
+            </Border>
+            <Button x:Name="VolverButton" Text="Volver a los resultados" Clicked="VolverResultados" BackgroundColor="#6554D9" TextColor="White" CornerRadius="14" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

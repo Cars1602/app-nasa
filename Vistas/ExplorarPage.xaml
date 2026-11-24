@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:modelo="clr-namespace:SpaceExplorer.Modelo"
+             x:Class="SpaceExplorer.Vistas.ExplorarPage"
+             Title="Explorar NASA" BackgroundColor="#0B1026">
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,Auto,Auto,*" RowSpacing="12" MaximumWidthRequest="1000" HorizontalOptions="Center">
+        <Label Text="¿Qué quieres explorar?" FontSize="24" FontAttributes="Bold" TextColor="White" />
+        <Grid Grid.Row="1" ColumnDefinitions="*,Auto" ColumnSpacing="10">
+            <Entry x:Name="BusquedaEntry" Placeholder="Ej.: moon, saturn, mars surface"
+                   TextColor="White" PlaceholderColor="#A6B9FF" MaxLength="120"
+                   ReturnType="Search" Completed="BuscarImagenes" />
+            <Button x:Name="BuscarButton" Grid.Column="1" Text="Buscar" Clicked="BuscarImagenes"
+                    BackgroundColor="#6554D9" TextColor="White" CornerRadius="12" />
+        </Grid>
+        <ScrollView Grid.Row="2" Orientation="Horizontal">
+            <HorizontalStackLayout x:Name="TemasPanel" Spacing="8">
+                <Button Text="Luna" CommandParameter="moon" Clicked="BuscarCategoria" BackgroundColor="#242F53" TextColor="White" CornerRadius="14" />
+                <Button Text="Marte" CommandParameter="mars surface" Clicked="BuscarCategoria" BackgroundColor="#242F53" TextColor="White" CornerRadius="14" />
+                <Button Text="Saturno" CommandParameter="saturn" Clicked="BuscarCategoria" BackgroundColor="#242F53" TextColor="White" CornerRadius="14" />
+                <Button Text="Galaxias" CommandParameter="galaxy" Clicked="BuscarCategoria" BackgroundColor="#30284D" TextColor="White" CornerRadius="14" />
+            </HorizontalStackLayout>
+        </ScrollView>
+        <ActivityIndicator x:Name="CargaIndicator" Grid.Row="3" IsVisible="False" IsRunning="False" Color="#A6B9FF" />
+        <Label x:Name="EstadoLabel" Grid.Row="4" Text="Consulta hasta 10 imágenes por búsqueda. Selecciona una tarjeta para ver sus detalles."
+               TextColor="#A6B9FF" FontSize="14" />
+        <CollectionView x:Name="ResultadosLista" Grid.Row="5" SelectionMode="Single" SelectionChanged="AbrirDetalle">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="modelo:Descubrimiento">
+                    <Border Margin="0,0,0,12" Padding="12" BackgroundColor="#18213F" Stroke="#384877">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="16" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="8">
+                            <Image Source="{Binding UrlImagen}" HeightRequest="200" Aspect="AspectFit" SemanticProperties.Description="{Binding Titulo}" />
+                            <Label Text="{Binding Titulo}" TextColor="White" FontSize="18" FontAttributes="Bold" />
+                            <Label Text="{Binding Centro, StringFormat='Centro: {0}'}" TextColor="#A6B9FF" />
+                            <Label Text="{Binding NasaId, StringFormat='NASA ID: {0}'}" TextColor="#A6B9FF" FontSize="12" />
+                            <Label Text="Ver descubrimiento →" TextColor="#C0B5FF" FontSize="14" />
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

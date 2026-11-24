@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:modelo="clr-namespace:SpaceExplorer.Modelo"
+             x:Class="SpaceExplorer.Vistas.ColeccionPage" Title="Mi colección" BackgroundColor="#0B1026">
+    <Grid Padding="20" RowDefinitions="Auto,Auto,Auto,*" RowSpacing="14" MaximumWidthRequest="1000" HorizontalOptions="Center">
+        <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+            <VerticalStackLayout Spacing="6">
+                <Label Text="Mis descubrimientos" TextColor="White" FontSize="26" FontAttributes="Bold" />
+                <Label Text="Tus imágenes, notas y categorías personales." TextColor="#A6B9FF" />
+            </VerticalStackLayout>
+            <Button Grid.Column="1" Text="Explorar" Clicked="AbrirExploracion" BackgroundColor="#6554D9" TextColor="White" CornerRadius="14" />
+        </Grid>
+        <ActivityIndicator Grid.Row="1" x:Name="CargaIndicator" IsVisible="False" IsRunning="False" Color="#A6B9FF" />
+        <Label Grid.Row="2" x:Name="EstadoLabel" TextColor="#A6B9FF" />
+        <CollectionView Grid.Row="3" x:Name="ColeccionLista" SelectionMode="None">
+            <CollectionView.EmptyView>
+                <VerticalStackLayout Padding="24" Spacing="16">
+                    <Image Source="orbita.png" WidthRequest="90" HeightRequest="90" />
+                    <Label Text="Tu colección está por comenzar" FontSize="22" TextColor="White" HorizontalTextAlignment="Center" />
+                    <Label Text="Explora una imagen y pulsa Guardar en mi colección desde sus detalles." TextColor="#A6B9FF" HorizontalTextAlignment="Center" />
+                </VerticalStackLayout>
+            </CollectionView.EmptyView>
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="modelo:DescubrimientoGuardado">
+                    <Border Margin="0,0,0,14" Padding="16" Stroke="#384877" BackgroundColor="#18213F">
+                        <Border.StrokeShape><RoundRectangle CornerRadius="18" /></Border.StrokeShape>
+                        <VerticalStackLayout Spacing="10">
+                            <Image Source="{Binding ImagenMostrar}" HeightRequest="180" Aspect="AspectFit" SemanticProperties.Description="{Binding Titulo}" />
+                            <Label Text="{Binding Titulo}" TextColor="White" FontSize="20" FontAttributes="Bold" />
+                            <Label Text="{Binding Categoria, StringFormat='Categoría: {0}'}" TextColor="#C0B5FF" />
+                            <Label Text="{Binding Notas}" MaxLines="3" LineBreakMode="TailTruncation" TextColor="#D4DDF4" />
+                            <Label Text="{Binding EstadoImagen}" FontSize="12" TextColor="#A6B9CF" />
+                            <Grid ColumnDefinitions="*,Auto" ColumnSpacing="12">
+                                <Button Text="Ver / editar" CommandParameter="{Binding .}" Clicked="AbrirGuardado" BackgroundColor="#6554D9" TextColor="White" CornerRadius="12" />
+                                <Button Grid.Column="1" Text="Eliminar" CommandParameter="{Binding .}" Clicked="EliminarGuardado" BackgroundColor="#4D243A" TextColor="#FFD1DF" CornerRadius="12" />
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </Grid>
+</ContentPage>

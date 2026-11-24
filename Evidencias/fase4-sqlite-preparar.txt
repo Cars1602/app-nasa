@@ -1,0 +1,32 @@
+No se pudo agregar "C:\Users\danie\AppData\Local\Packages\openai.codex_2p2nqsd0c76g0\AC\#!sandbox.{e39fa643-b0a3-4219-82a1-6e43b4632358}\Temp\SpaceExplorer-dotnet\.dotnet\tools" a la variable de entorno PATH. Agregue este directorio a PATH para usar las herramientas instaladas con "dotnet tool install".
+
+Esto es .NET 10.0.
+---------------------
+Versi├│n del SDK: 10.0.403
+
+----------------
+Instalar un certificado de desarrollo HTTPS de ASP.NET Core.
+Para confiar en el certificado, ejecute "dotnet dev-certs https --trust"
+Obtenga informaci├│n sobre HTTPS: https://aka.ms/dotnet-https
+
+----------------
+Escribir su primera aplicaci├│n: https://aka.ms/dotnet-hello-world
+Descubra las novedades: https://aka.ms/dotnet-whats-new
+Explore la documentaci├│n: https://aka.ms/dotnet-docs
+Notificar problemas y encontrar el c├│digo fuente en GitHub: https://github.com/dotnet/core
+Use "dotnet --help" para ver los comandos disponibles o visite: https://aka.ms/dotnet-cli
+--------------------------------------------------------------------------------------
+Se encontr├│ un problema al comprobar las cargas de trabajo. Para obtener m├ís informaci├│n, ejecute "dotnet workload update".
+OK: Crear SQLite real y consultar colecci├│n vac├¡a
+OK: Insertar registro con ID SQLite
+OK: Guardar copia de imagen en archivo local
+OK: Conservar fecha ISO
+OK: Evitar duplicado sin sobrescribir notas ni repetir descarga
+OK: Editar solo notas y categor├¡a con par├ímetros SQL
+OK: Validar categor├¡a vac├¡a
+OK: Validar l├¡mite de notas
+OK: Validar identificador ausente
+OK: Evitar duplicados de guardados concurrentes
+OK: Conservar texto si falla la descarga de imagen
+Conexi├│n cerrada. Iniciar OTRO proceso en modo comprobar con la misma ruta.
+11 comprobaciones correctas en preparar. SQLite real; HTTP simulado.

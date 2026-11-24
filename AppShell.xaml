@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="SpaceExplorer.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:vistas="clr-namespace:SpaceExplorer.Vistas"
+    Title="SpaceExplorer" FlyoutBehavior="Disabled"
+    BackgroundColor="#0B1026" ForegroundColor="White" TitleColor="White"
+    TabBarBackgroundColor="#18213F" TabBarForegroundColor="#C0B5FF" TabBarUnselectedColor="#A6B9CF">
+
+    <TabBar>
+        <ShellContent Title="Inicio" Icon="inicio.png" Route="Inicio" ContentTemplate="{DataTemplate vistas:InicioPage}" />
+        <ShellContent Title="Explorar" Icon="explorar.png" Route="Explorar" ContentTemplate="{DataTemplate vistas:ExplorarPage}" />
+        <ShellContent Title="Colección" Icon="coleccion.png" Route="Coleccion" ContentTemplate="{DataTemplate vistas:ColeccionPage}" />
+    </TabBar>
+
+</Shell>
